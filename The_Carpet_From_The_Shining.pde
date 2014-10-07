@@ -1,14 +1,17 @@
-Hexagon[][] grid;
-int cols = 2;
-int rows = 2;
+Hexagon[][] hexGrid;
+WeirdShape[][] shGrid;
+int cols = 16;
+int rows = 16;
 
 void setup(){
-  size(640, 360, P2D);
-  grid = new Hexagon[cols][rows];
-  float radius = (width/cols)/2;
+  size(1280, 720, P2D);
+  hexGrid = new Hexagon[cols][rows];
+  shGrid = new WeirdShape[cols][rows];
+  float radius = (width/cols);
   for(int i = 0; i < cols; i++){
     for(int j = 0; j < rows; j++){
-      grid[i][j] = new Hexagon(i, j, radius);
+      hexGrid[i][j] = new Hexagon(i, j, radius/2);
+      shGrid[i][j] = new WeirdShape(i, j, radius);
     }
   }
 }
@@ -18,7 +21,8 @@ void draw(){
   float radius = width/cols;
   for(int i = 0; i < cols; i++){
     for(int j = 0; j < rows; j++){
-      grid[i][j].display();
+      shGrid[i][j].display();
+      hexGrid[i][j].display();
     }
   }
 }
